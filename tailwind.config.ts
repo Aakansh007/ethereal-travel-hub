@@ -1,33 +1,39 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
-	darkMode: ["class"],
-	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
-	],
-	prefix: "",
-	theme: {
-		container: {
-			center: true,
-			padding: '2rem',
-			screens: {
-				'2xl': '1400px'
-			}
-		},
-		extend: {
-			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
-				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
-				},
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        airport: {
+          primary: "#6096B4",
+          accent: "#93BFCF",
+          light: "#EEE9DA",
+          medium: "#BDCDD6",
+        },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
@@ -62,35 +68,32 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
-			},
-			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
-			},
-			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
-				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				}
-			},
-			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
-		}
-	},
-	plugins: [require("tailwindcss-animate")],
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        globe: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "globe-spin": "globe 240s linear infinite",
+        "fade-in": "fadeIn 0.5s ease-out forwards",
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;
